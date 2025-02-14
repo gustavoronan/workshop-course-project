@@ -3,8 +3,20 @@ package com.project.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user") //renomeando a tabela a ser criada automaticamente pelo JPA
+//pois User é uma palavra reservada no banco
 public class User implements Serializable {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //define o autoincrement
 	private long id;
 	private String name;
 	private String email;
